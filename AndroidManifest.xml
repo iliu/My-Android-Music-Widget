@@ -6,6 +6,7 @@
 		<receiver android:name=".SimpMusicWidget" android:label="@string/app_name">
 			<intent-filter>
 				<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+				<action android:name="com.sacliv.simpmusicwidget.SimpMusicWidget.ACTION_WIDGET_RECEIVER"/>
 			</intent-filter>
 			<meta-data android:name="android.appwidget.provider"
 				android:resource="@xml/simpmusic_widget_provider" />
