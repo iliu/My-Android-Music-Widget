@@ -21,6 +21,7 @@ import android.widget.Toast;
  */
 public class SimpMusicWidget extends AppWidgetProvider {
     public static String ACTION_WIDGET_RECEIVER = "PLAYActionReceiverWidget";
+    public static String ACTION_WIDGET_CONFIGURE = "SimpMusicWidgetActionReceiverWidget";
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -31,18 +32,23 @@ public class SimpMusicWidget extends AppWidgetProvider {
                 msg = intent.getStringExtra("msg");
             } catch (NullPointerException e) {
                 Log.e("Error", "msg = null");
-            }
+            } 
             
             Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
+            
             PendingIntent contentIntent = PendingIntent.getActivity(context, 0,
                     intent, 0);
             NotificationManager notificationManager = (NotificationManager) context
                     .getSystemService(Context.NOTIFICATION_SERVICE);
             Notification noty = new Notification(R.drawable.icon,
-                    "Music Player Started", System.currentTimeMillis());
+                    "Music Player Started - 2", System.currentTimeMillis());
             noty.setLatestEventInfo(context, "Notice", msg, contentIntent);
             notificationManager.notify(1, noty);
         }
+        else {
+            Toast.makeText(context, intent.getAction(), Toast.LENGTH_SHORT).show();
+        }
+            
         super.onReceive(context, intent);
     }
 
@@ -56,15 +62,20 @@ public class SimpMusicWidget extends AppWidgetProvider {
         
         Toast.makeText(context, "onUpdate", Toast.LENGTH_SHORT).show();
         
+        Intent configIntent = new Intent(context, ConfigureSMW.class);
+        configIntent.setAction(ACTION_WIDGET_CONFIGURE);
+        PendingIntent configurePendingIntent = PendingIntent.getActivity(context, 0, configIntent, 0);
+        
         Intent action = new Intent(context, SimpMusicWidget.class);
         action.setAction(ACTION_WIDGET_RECEIVER);
         action.putExtra("msg", "This starts playing");
-
         PendingIntent actionPendingIntent = PendingIntent.getBroadcast(context,
                 0, action, 0);
 
         remoteViews.setOnClickPendingIntent(R.id.play_button,
                 actionPendingIntent);
+        remoteViews.setOnClickPendingIntent(R.id.next_button,
+                configurePendingIntent);
         
         appWidgetManager.updateAppWidget(appWidgetIds, remoteViews);
         super.onUpdate(context, appWidgetManager, appWidgetIds);

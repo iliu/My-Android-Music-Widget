@@ -11,6 +11,12 @@
 			<meta-data android:name="android.appwidget.provider"
 				android:resource="@xml/simpmusic_widget_provider" />
 		</receiver>
+		
+		<activity android:name=".ConfigureSMW">
+			<intent-filter>
+				<action android:name="com.sacliv.simpmusicwidget.SimpMusicWidget.ACTION_WIDGET_CONFIGURE"/>
+			</intent-filter>
+		</activity>
 	</application>
 	<uses-sdk android:minSdkVersion="4" />
 

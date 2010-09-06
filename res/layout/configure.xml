@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content">
+  <TextView android:layout_width="wrap_content"
+		android:layout_height="wrap_content" 
+		android:id="@+id/TextNikeId"
+		android:text="Text" 
+		android:textColor="@android:color/white" 
+		android:textSize="15dip" 
+		android:textStyle="bold" 
+		android:layout_marginTop="5dip"/>
+	<EditText android:layout_width="wrap_content"
+		android:layout_height="wrap_content" 
+		android:id="@+id/txtFieldId"
+		android:clickable="true" 
+		android:inputType="number" 
+		android:layout_marginTop="5dip"
+		android:layout_marginBottom="20dip"/>
+</LinearLayout>
