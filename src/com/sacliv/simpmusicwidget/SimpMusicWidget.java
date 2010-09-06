@@ -8,7 +8,6 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -22,7 +21,7 @@ import android.widget.Toast;
 public class SimpMusicWidget extends AppWidgetProvider {
     public static String ACTION_WIDGET_RECEIVER = "PLAYActionReceiverWidget";
     public static String ACTION_WIDGET_CONFIGURE = "SimpMusicWidgetActionReceiverWidget";
-
+    
     @Override
     public void onReceive(Context context, Intent intent) {
         // TODO Auto-generated method stub
@@ -56,10 +55,10 @@ public class SimpMusicWidget extends AppWidgetProvider {
     public void onUpdate(Context context, AppWidgetManager appWidgetManager,
             int[] appWidgetIds) {
         // TODO Auto-generated method stub
-
+        
         RemoteViews remoteViews = new RemoteViews(context.getPackageName(),
                 R.layout.main);
-        
+
         Toast.makeText(context, "onUpdate", Toast.LENGTH_SHORT).show();
         
         Intent configIntent = new Intent(context, ConfigureSMW.class);
@@ -80,5 +79,8 @@ public class SimpMusicWidget extends AppWidgetProvider {
         appWidgetManager.updateAppWidget(appWidgetIds, remoteViews);
         super.onUpdate(context, appWidgetManager, appWidgetIds);
     }
+    
 
 }
+
+
