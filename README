@@ -2,3 +2,7 @@ Stuff I want to add:
  * Customize what's on the widget
  * Different sizes
  * Allow different styles (users can customize styles?)
+
+Acknowledgment:
+ * Alex Curelea's blog - http://www.alexc.me/android-music-app-service-currently-playing-song/231/
+    The method to connect to the music services is using the method mentioned there.

@@ -16,8 +16,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class ConfigureSMW extends Activity {
-
+    private MediaPlayerServiceConnection mpsc;
     
+    @Override
+    protected void onStop() {
+        // TODO Auto-generated method stub
+        this.unbindService(mpsc);
+        super.onStop();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
@@ -28,8 +35,8 @@ public class ConfigureSMW extends Activity {
 
         Intent im = new Intent();
         im.setClassName("com.android.music", "com.android.music.MediaPlaybackService");
-        MediaPlayerServiceConnection mpsc = new MediaPlayerServiceConnection();
-        this.bindService(im, mpsc, 0);
+        mpsc = new MediaPlayerServiceConnection();
+        this.bindService(im, mpsc, BIND_AUTO_CREATE);
         
         ActivityManager am = (ActivityManager)this.getSystemService(ACTIVITY_SERVICE);
         List<ActivityManager.RunningServiceInfo> rs = am.getRunningServices(50);
@@ -38,6 +45,7 @@ public class ConfigureSMW extends Activity {
         output += "Process " + rsi.process + " with component " + rsi.service.getClassName();
         output += "\n";
         }
+        
         TextView tv = (TextView) findViewById(R.id.TextNikeId);
         tv.setText(output);
         
@@ -76,6 +84,7 @@ public class ConfigureSMW extends Activity {
         public void onServiceDisconnected(ComponentName name) {
                 Log.i("MediaPlayerServiceConnection", "Disconnected!");
         }
+        
     }
 
 }
