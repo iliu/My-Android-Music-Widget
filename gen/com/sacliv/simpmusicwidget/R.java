@@ -14,11 +14,13 @@ public final class R {
         public static final int icon=0x7f020000;
     }
     public static final class id {
-        public static final int TextNikeId=0x7f060000;
-        public static final int artist=0x7f060002;
-        public static final int next_button=0x7f060004;
-        public static final int play_button=0x7f060003;
-        public static final int title=0x7f060001;
+        public static final int TextNikeId=0x7f060002;
+        public static final int artist=0x7f060004;
+        public static final int musicstuff=0x7f060000;
+        public static final int next_button=0x7f060006;
+        public static final int play_button=0x7f060005;
+        public static final int refresh_button=0x7f060001;
+        public static final int title=0x7f060003;
     }
     public static final class layout {
         public static final int configure=0x7f030000;

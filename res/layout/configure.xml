@@ -2,8 +2,22 @@
 <LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="wrap_content"
-  android:layout_height="wrap_content">
+  android:layout_height="wrap_content"
+  android:orientation="vertical">
+		
   <TextView android:layout_width="wrap_content"
+		android:layout_height="wrap_content" 
+		android:id="@+id/musicstuff"
+		android:text="Textsdflkasdfja;sldkfj;saldkfjas;lkj" 
+		android:textColor="@android:color/white" 
+		android:textSize="15dip" 
+		android:textStyle="bold" 
+		android:layout_marginTop="5dip"/>
+		
+	<Button android:id="@+id/refresh_button" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="refresh" />
+			
+	<TextView android:layout_width="wrap_content"
 		android:layout_height="wrap_content" 
 		android:id="@+id/TextNikeId"
 		android:text="Text" 
